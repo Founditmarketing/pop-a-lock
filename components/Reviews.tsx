@@ -33,16 +33,8 @@ export const Reviews: React.FC = () => {
               <div className="bg-white rounded-xl p-8 shadow-xl text-gray-800 relative group hover:-translate-y-1 transition-transform duration-300 border-b-4 border-transparent hover:border-pop-orange">
                 <Quote className="absolute top-8 right-8 text-pop-orange/20 w-16 h-16 group-hover:text-pop-orange/40 transition-colors group-hover:scale-110 transform duration-300" />
                 
-                <div className="flex items-center gap-4 mb-6">
-                  <img 
-                    src={review.avatar} 
-                    alt={review.name} 
-                    className="w-16 h-16 rounded-full object-cover border-4 border-orange-50 group-hover:border-pop-orange/20 transition-colors"
-                  />
-                  <div>
-                    <h3 className="font-bold text-xl">{review.name}</h3>
-                    <p className="text-pop-orange font-medium text-sm">{review.handle}</p>
-                  </div>
+                <div className="mb-6">
+                  <h3 className="font-bold text-xl text-gray-900">{review.name}</h3>
                 </div>
                 
                 <div className="flex gap-1 mb-4">

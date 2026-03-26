@@ -33,11 +33,7 @@ export const Header: React.FC = () => {
           <div className="hidden md:flex items-center gap-6 font-medium">
              <div className="flex items-center gap-2">
                 <Clock size={14} className="text-white" />
-                <span>Mon-Fri: 8am-6pm</span>
-             </div>
-             <div className="flex items-center gap-2">
-                <Clock size={14} className="text-white" />
-                <span>Sat: 9am-3pm</span>
+                <span>Everyday: 7am-9pm</span>
              </div>
           </div>
         </div>
@@ -118,7 +114,7 @@ export const Header: React.FC = () => {
             <div className="flex flex-col p-4 space-y-4">
               <div className="text-sm text-gray-500 pb-2 border-b border-gray-100 mb-2">
                 <p className="flex items-center gap-2 mb-1"><MapPin size={12}/> Alexandria, LA</p>
-                <p className="flex items-center gap-2"><Clock size={12}/> Mon-Fri 8am-6pm</p>
+                <p className="flex items-center gap-2"><Clock size={12}/> Everyday 7am-9pm</p>
               </div>
               
               <Link to="/" className="text-gray-800 font-semibold text-lg py-2 border-b border-gray-100" onClick={() => setMobileMenuOpen(false)}>Home</Link>

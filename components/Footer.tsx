@@ -73,16 +73,8 @@ export const Footer: React.FC = () => {
                 <span className="text-white font-semibold">24/7</span>
               </li>
               <li className="flex justify-between">
-                <span>Mon - Fri</span>
-                <span>8:00 AM - 6:00 PM</span>
-              </li>
-              <li className="flex justify-between">
-                <span>Saturday</span>
-                <span>9:00 AM - 3:00 PM</span>
-              </li>
-              <li className="flex justify-between">
-                <span>Sunday</span>
-                <span>Closed</span>
+                <span>Everyday</span>
+                <span>7:00 AM - 9:00 PM</span>
               </li>
             </ul>
           </div>
