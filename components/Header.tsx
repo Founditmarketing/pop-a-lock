@@ -22,7 +22,7 @@ export const Header: React.FC = () => {
   return (
     <header className="fixed top-0 left-0 w-full z-40 flex flex-col">
       {/* Top Bar - Address & Hours */}
-      <div className={`bg-pop-orange text-white text-xs md:text-sm border-b transition-all duration-300 ${isScrolled ? 'h-0 overflow-hidden py-0 opacity-0 border-transparent' : 'py-2 h-auto opacity-100 border-orange-600'}`}>
+      <div className={`bg-pop-orange text-white text-xs md:text-sm transition-all duration-300 ${isScrolled ? 'h-0 overflow-hidden py-0 opacity-0 border-none' : 'py-2 h-auto opacity-100 border-b border-orange-600'}`}>
         <div className="w-full px-4 md:px-8 xl:px-12 flex justify-between items-center">
           <div className="flex items-center gap-4">
              <div className="flex items-center gap-2 font-medium">
