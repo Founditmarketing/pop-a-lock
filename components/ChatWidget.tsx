@@ -58,14 +58,31 @@ export const ChatWidget: React.FC = () => {
           <div className="p-6 bg-white relative">
              <h3 className="text-sm font-bold text-gray-800 mb-4 tracking-tight uppercase border-b border-gray-100 pb-2">Or Request Service</h3>
              
-             <form className="space-y-4" onSubmit={(e) => { 
+             <form className="space-y-4" onSubmit={async (e) => { 
                 e.preventDefault(); 
-                alert('Your request has been received! A dispatcher will contact you immediately.'); 
-                setIsOpen(false); 
+                const formData = new FormData(e.currentTarget);
+                const data = Object.fromEntries(formData.entries());
+                
+                try {
+                  const res = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                  });
+                  if (res.ok) {
+                    alert('Your request has been received! A dispatcher will contact you immediately.'); 
+                    setIsOpen(false); 
+                  } else {
+                    alert('There was an error sending your request.');
+                  }
+                } catch (error) {
+                  alert('Network issue. Please call us directly.');
+                }
              }}>
                 
                 <div>
                   <select 
+                     name="service"
                      className="w-full bg-gray-50 border border-gray-200 text-gray-700 text-sm font-medium rounded-lg focus:ring-2 focus:ring-pop-orange/20 focus:border-pop-orange block p-3 outline-none transition-all cursor-pointer appearance-none shadow-sm"
                      required
                      defaultValue=""
@@ -73,14 +90,15 @@ export const ChatWidget: React.FC = () => {
                   >
                      <option value="" disabled>Select the service you need...</option>
                      {SERVICES.map(service => (
-                        <option key={service.id} value={service.id}>{service.title}</option>
+                        <option key={service.id} value={service.title}>{service.title}</option>
                      ))}
                   </select>
                 </div>
                 
                 <div className="grid grid-cols-2 gap-3">
-                  <input type="text" placeholder="Full Name" required className="block w-full bg-gray-50 border border-gray-200 text-gray-900 text-sm font-medium rounded-lg focus:ring-2 focus:ring-pop-orange/20 focus:border-pop-orange p-3 outline-none transition-all shadow-sm" />
-                  <input type="tel" placeholder="Phone" required className="block w-full bg-gray-50 border border-gray-200 text-gray-900 text-sm font-medium rounded-lg focus:ring-2 focus:ring-pop-orange/20 focus:border-pop-orange p-3 outline-none transition-all shadow-sm" />
+                  <input name="name" type="text" placeholder="Full Name" required className="block w-full bg-gray-50 border border-gray-200 text-gray-900 text-sm font-medium rounded-lg focus:ring-2 focus:ring-pop-orange/20 focus:border-pop-orange p-3 outline-none transition-all shadow-sm" />
+                  <input name="email" type="email" placeholder="Email" required className="block w-full bg-gray-50 border border-gray-200 text-gray-900 text-sm font-medium rounded-lg focus:ring-2 focus:ring-pop-orange/20 focus:border-pop-orange p-3 outline-none transition-all shadow-sm" />
+                  <input name="phone" type="tel" placeholder="Phone" required className="block w-full col-span-2 bg-gray-50 border border-gray-200 text-gray-900 text-sm font-medium rounded-lg focus:ring-2 focus:ring-pop-orange/20 focus:border-pop-orange p-3 outline-none transition-all shadow-sm" />
                 </div>
                 
                 <Button variant="dark" fullWidth type="submit" className="mt-2 h-12 text-sm shadow-md group">
