@@ -1,7 +1,7 @@
 import { Car, Home, Building2, Key, Clock, ShieldCheck, MapPin, Phone, Facebook, Instagram, Twitter, Wrench, Heart, Truck, Radio } from 'lucide-react';
 import { ServiceItem, ChatPrompt, SocialLink, Review } from './types';
 
-export const COMPANY_PHONE = "(318) 443-4444";
+export const COMPANY_PHONE = "(318) 487-6736";
 export const COMPANY_NAME = "Pop-A-Lock of Alexandria";
 export const LOGO_URL = "/logo.png";
 

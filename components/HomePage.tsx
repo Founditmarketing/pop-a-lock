@@ -163,9 +163,9 @@ export const HomePage: React.FC = () => {
 
               <ScrollReveal animation="slide-in-up" delay="0.6s">
                 <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                  <a href="tel:3184434444" className="w-full sm:w-auto">
+                  <a href="tel:3184876736" className="w-full sm:w-auto">
                     <Button variant="dark" className="text-lg px-8 py-5 shadow-2xl h-full w-full">
-                      <Phone className="mr-2"/> Call (318) 443-4444
+                      <Phone className="mr-2"/> Call (318) 487-6736
                     </Button>
                   </a>
                 </div>

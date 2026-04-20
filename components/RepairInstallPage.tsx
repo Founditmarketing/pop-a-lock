@@ -77,9 +77,9 @@ export const RepairInstallPage: React.FC = () => {
          <div className="container mx-auto px-4 relative z-10">
            <ScrollReveal animation="slide-in-up">
              <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6 drop-shadow-sm">We're Ready To Help Right Now</h2>
-             <a href="tel:3184434444" className="inline-block">
+             <a href="tel:3184876736" className="inline-block">
                <Button variant="dark" className="text-xl px-10 py-5 shadow-xl hover:scale-105 transition-transform">
-                 <Phone className="mr-3"/> Call (318) 443-4444
+                 <Phone className="mr-3"/> Call (318) 487-6736
                </Button>
              </a>
            </ScrollReveal>
