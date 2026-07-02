@@ -18,10 +18,15 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ variant = 'default' }) => 
     const data = Object.fromEntries(formData.entries());
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('https://www.founditos.com/api/contact-form/d692b6b2-d955-428c-ab70-f9a2e39f3be8', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          name: data.name as string,
+          email: data.email as string,
+          phone: data.phone as string,
+          message: `Service: ${data.service || 'General'}\n\n${data.message || ''}`,
+        }),
       });
       if (response.ok) {
         setSubmitted(true);
