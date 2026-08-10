@@ -3,10 +3,18 @@ import { ShieldCheck, Award, Heart, Phone } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal';
 import { Button } from './Button';
 import { QuoteForm } from './QuoteForm';
+import { PageSEO } from './PageSEO';
+import { LOCAL_BUSINESS_SCHEMA } from '../constants';
 
 export const AboutPage: React.FC = () => {
   return (
     <div className="bg-white">
+      <PageSEO
+        title="About Us | Pop-A-Lock of Alexandria, LA"
+        description="Licensed, bonded, and insured locksmiths serving Alexandria, LA since 1991. Learn about our commitment to fast, honest, and professional service."
+        path="/about"
+        jsonLd={LOCAL_BUSINESS_SCHEMA}
+      />
       {/* 1. Page Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-pop-dark flex items-center min-h-[40vh]">
         {/* Background Image with Overlay */}

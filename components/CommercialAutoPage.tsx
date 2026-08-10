@@ -1,9 +1,10 @@
 import React from 'react';
-import { SERVICES } from '../constants';
+import { SERVICES, LOCAL_BUSINESS_SCHEMA, buildServiceSchema } from '../constants';
 import { Phone, CheckCircle } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal';
 import { Button } from './Button';
 import { QuoteForm } from './QuoteForm';
+import { PageSEO } from './PageSEO';
 
 export const CommercialAutoPage: React.FC = () => {
   const service = SERVICES.find(s => s.id === 'commercial-auto');
@@ -11,6 +12,12 @@ export const CommercialAutoPage: React.FC = () => {
 
   return (
     <div className="bg-white">
+      <PageSEO
+        title="Commercial Auto Locksmith | Pop-A-Lock of Alexandria, LA"
+        description="Fleet vehicle unlocking and key programming for businesses and dealerships in Alexandria, LA. Priority commercial locksmith service."
+        path="/services/commercial-auto"
+        jsonLd={[LOCAL_BUSINESS_SCHEMA, buildServiceSchema(service, '/services/commercial-auto')]}
+      />
       {/* 1. Page Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-pop-dark flex items-center min-h-[40vh]">
         <div className="absolute inset-0 z-0">

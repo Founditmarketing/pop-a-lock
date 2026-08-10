@@ -7,6 +7,8 @@ import { Button } from './Button';
 import { QuoteForm } from './QuoteForm';
 import { ShieldCheck, Award, Heart, Key, Lock, Truck, Phone, CheckCircle, Clock } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal';
+import { PageSEO } from './PageSEO';
+import { LOCAL_BUSINESS_SCHEMA } from '../constants';
 
 export const HomePage: React.FC = () => {
   const [activeTrustIndex, setActiveTrustIndex] = useState(0);
@@ -29,6 +31,12 @@ export const HomePage: React.FC = () => {
 
   return (
     <>
+      <PageSEO
+        title="Pop-A-Lock of Alexandria, LA | 24/7 Locksmith & Lockout Service"
+        description="Fast, reliable locksmith service in Alexandria, LA. Auto, home & commercial lockouts, rekeying, and smart key programming. Call (318) 487-6736."
+        path="/"
+        jsonLd={LOCAL_BUSINESS_SCHEMA}
+      />
       <Hero />
       
       {/* Trust Indicators Carousel */}

@@ -4,6 +4,43 @@ import { ServiceItem, ChatPrompt, SocialLink, Review } from './types';
 export const COMPANY_PHONE = "(318) 487-6736";
 export const COMPANY_NAME = "Pop-A-Lock of Alexandria";
 export const LOGO_URL = "/logo.png";
+export const SITE_URL = "https://popalockalexandria.com";
+
+export const LOCAL_BUSINESS_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "Locksmith",
+  "name": COMPANY_NAME,
+  "url": SITE_URL,
+  "image": `${SITE_URL}/logo.png`,
+  "logo": `${SITE_URL}/logo.png`,
+  "telephone": COMPANY_PHONE,
+  "email": "service@popalock.com",
+  "priceRange": "$$",
+  "areaServed": {
+    "@type": "City",
+    "name": "Alexandria, LA"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Alexandria",
+    "addressRegion": "LA",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 31.2897157,
+    "longitude": -92.4973367
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "00:00",
+      "closes": "23:59",
+      "description": "24/7 Emergency Locksmith Service"
+    }
+  ]
+};
 
 export const SERVICES: ServiceItem[] = [
   {
@@ -79,6 +116,26 @@ export const SERVICES: ServiceItem[] = [
     image: '/service-pal-saves-kids.png'
   },
 ];
+
+export const buildServiceSchema = (service: ServiceItem, path: string) => ({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": service.title,
+  "name": `${service.title} | ${COMPANY_NAME}`,
+  "description": service.description,
+  "url": `${SITE_URL}${path}`,
+  "image": `${SITE_URL}${service.image}`,
+  "areaServed": {
+    "@type": "City",
+    "name": "Alexandria, LA"
+  },
+  "provider": {
+    "@type": "Locksmith",
+    "name": COMPANY_NAME,
+    "telephone": COMPANY_PHONE,
+    "url": SITE_URL
+  }
+});
 
 export const CHAT_PROMPTS: ChatPrompt[] = [
   {

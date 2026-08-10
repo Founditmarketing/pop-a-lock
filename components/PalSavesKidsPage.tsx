@@ -1,9 +1,10 @@
 import React from 'react';
-import { SERVICES } from '../constants';
+import { SERVICES, LOCAL_BUSINESS_SCHEMA, buildServiceSchema } from '../constants';
 import { Phone, CheckCircle } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal';
 import { Button } from './Button';
 import { QuoteForm } from './QuoteForm';
+import { PageSEO } from './PageSEO';
 
 export const PalSavesKidsPage: React.FC = () => {
   const service = SERVICES.find(s => s.id === 'palsaveskids');
@@ -11,6 +12,12 @@ export const PalSavesKidsPage: React.FC = () => {
 
   return (
     <div className="bg-white">
+      <PageSEO
+        title="PALSavesKids | Free Child & Pet Lockout Rescue | Pop-A-Lock of Alexandria, LA"
+        description="Free emergency car door unlocking if a child or pet is locked inside a vehicle in Alexandria, LA. Call 911 first, then call Pop-A-Lock."
+        path="/services/palsaveskids"
+        jsonLd={[LOCAL_BUSINESS_SCHEMA, buildServiceSchema(service, '/services/palsaveskids')]}
+      />
       {/* 1. Page Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-pop-dark flex items-center min-h-[40vh]">
         <div className="absolute inset-0 z-0">

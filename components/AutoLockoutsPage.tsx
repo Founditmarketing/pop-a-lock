@@ -1,9 +1,10 @@
 import React from 'react';
-import { SERVICES } from '../constants';
+import { SERVICES, LOCAL_BUSINESS_SCHEMA, buildServiceSchema } from '../constants';
 import { Phone, CheckCircle } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal';
 import { Button } from './Button';
 import { QuoteForm } from './QuoteForm';
+import { PageSEO } from './PageSEO';
 
 export const AutoLockoutsPage: React.FC = () => {
   const service = SERVICES.find(s => s.id === 'auto-lockout');
@@ -11,6 +12,12 @@ export const AutoLockoutsPage: React.FC = () => {
 
   return (
     <div className="bg-white">
+      <PageSEO
+        title="Auto Lockout Service | Pop-A-Lock of Alexandria, LA"
+        description="Locked out of your car in Alexandria, LA? Our certified technicians open vehicles fast without damage. 24/7 emergency auto lockout service."
+        path="/services/auto-lockout"
+        jsonLd={[LOCAL_BUSINESS_SCHEMA, buildServiceSchema(service, '/services/auto-lockout')]}
+      />
       {/* 1. Page Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-pop-dark flex items-center min-h-[40vh]">
         <div className="absolute inset-0 z-0">

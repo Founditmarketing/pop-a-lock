@@ -3,11 +3,18 @@ import { Phone, MapPin, Clock } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal';
 import { QuoteForm } from './QuoteForm';
 import { ServiceMap } from './ServiceMap';
-import { COMPANY_PHONE } from '../constants';
+import { COMPANY_PHONE, LOCAL_BUSINESS_SCHEMA } from '../constants';
+import { PageSEO } from './PageSEO';
 
 export const ContactPage: React.FC = () => {
   return (
     <div className="bg-pop-dark text-white min-h-screen flex flex-col pt-16">
+       <PageSEO
+        title="Contact Us | Pop-A-Lock of Alexandria, LA"
+        description="Need a locksmith now? Contact Pop-A-Lock of Alexandria, LA for 24/7 emergency lockout service or to request a free quote."
+        path="/contact"
+        jsonLd={LOCAL_BUSINESS_SCHEMA}
+       />
        {/* Unique Hero for Contact Page */}
        <section className="relative pt-24 pb-16 md:pt-32 overflow-hidden bg-pop-dark flex items-center">
         {/* Background Texture */}

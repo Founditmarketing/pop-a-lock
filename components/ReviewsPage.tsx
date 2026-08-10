@@ -2,6 +2,8 @@ import React from 'react';
 import { Phone, Star } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal';
 import { Button } from './Button';
+import { PageSEO } from './PageSEO';
+import { COMPANY_NAME, LOCAL_BUSINESS_SCHEMA } from '../constants';
 
 export const ReviewsPage: React.FC = () => {
   const reviews = [
@@ -13,8 +15,33 @@ export const ReviewsPage: React.FC = () => {
     { author: "John D.", text: "Locked my keys in my car. The dispatcher was helpful and the technician came out in 15 minutes. Super fast and professional!", date: "8 months ago" },
   ];
 
+  const reviewSchema = reviews.map((review) => ({
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "Locksmith",
+      "name": COMPANY_NAME
+    },
+    "author": {
+      "@type": "Person",
+      "name": review.author
+    },
+    "reviewBody": review.text,
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5",
+      "bestRating": "5"
+    }
+  }));
+
   return (
     <div className="bg-white">
+      <PageSEO
+        title="Customer Reviews | Pop-A-Lock of Alexandria, LA"
+        description="Read real customer reviews of Pop-A-Lock of Alexandria's auto, home, and commercial locksmith services. Trusted 5-star service across Central Louisiana."
+        path="/reviews"
+        jsonLd={[LOCAL_BUSINESS_SCHEMA, ...reviewSchema]}
+      />
       {/* 1. Page Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-pop-dark flex items-center min-h-[40vh]">
         {/* Background Image with Overlay */}

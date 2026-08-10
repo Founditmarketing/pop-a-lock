@@ -1,9 +1,10 @@
 import React from 'react';
-import { SERVICES } from '../constants';
+import { SERVICES, LOCAL_BUSINESS_SCHEMA, buildServiceSchema } from '../constants';
 import { Phone, CheckCircle } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal';
 import { Button } from './Button';
 import { QuoteForm } from './QuoteForm';
+import { PageSEO } from './PageSEO';
 
 export const SmartKeyPage: React.FC = () => {
   const service = SERVICES.find(s => s.id === 'smart-key');
@@ -11,6 +12,12 @@ export const SmartKeyPage: React.FC = () => {
 
   return (
     <div className="bg-white">
+      <PageSEO
+        title="Smart Key Programming | Pop-A-Lock of Alexandria, LA"
+        description="Lost your car key fob? We cut and program smart keys, transponder keys, and proximity fobs on-site in Alexandria, LA for less than the dealer."
+        path="/services/smart-key"
+        jsonLd={[LOCAL_BUSINESS_SCHEMA, buildServiceSchema(service, '/services/smart-key')]}
+      />
       {/* 1. Page Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-pop-dark flex items-center min-h-[40vh]">
         <div className="absolute inset-0 z-0">
