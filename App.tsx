@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import { Header } from './components/Header';
 import { HomePage } from './components/HomePage';
 import { AboutPage } from './components/AboutPage';
@@ -63,6 +64,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <AppContent />
+      <Analytics />
     </Router>
   );
 };
